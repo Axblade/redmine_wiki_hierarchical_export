@@ -11,20 +11,20 @@ h2. Installation
 # Add link to export:
 It will be:
 <pre>
-<% other_formats_links do |f| %>
-  <%= f.link_to 'PDF', :url => {:id => @page.title, :version => params[:version]} %>
-  <%= f.link_to 'HTML', :url => {:id => @page.title, :version => params[:version]} %>
-  <%= f.link_to 'TXT', :url => {:id => @page.title, :version => params[:version]} %>
-<% end if User.current.allowed_to?(:export_wiki_pages, @project) %>
+<!% other_formats_links do |f| %>
+  <!%= f.link_to 'PDF', :url => {:id => @page.title, :version => params[:version]} !%>
+  <!%= f.link_to 'HTML', :url => {:id => @page.title, :version => params[:version]} !%>
+  <!%= f.link_to 'TXT', :url => {:id => @page.title, :version => params[:version]} !%>
+<!% end if User.current.allowed_to?(:export_wiki_pages, @project) %>
 </pre>
 It should be:
 <pre>
-<% other_formats_links do |f| %>
-  <%= f.link_to 'PDF', :url => {:id => @page.title, :version => params[:version]} %>
-  <%= f.link_to 'Hierarchical PDF', :url => {:controller => :export, :action => :export, :id => @page.id, :version => params[:version]} %>
-  <%= f.link_to 'HTML', :url => {:id => @page.title, :version => params[:version]} %>
-  <%= f.link_to 'TXT', :url => {:id => @page.title, :version => params[:version]} %>
-<% end if User.current.allowed_to?(:export_wiki_pages, @project) %>
+<!% other_formats_links do |f| %>
+  <!%= f.link_to 'PDF', :url => {:id => @page.title, :version => params[:version]} !%>
+  <!%= f.link_to l(:wiki_hierarchical_export_link), :url => {:controller => :export, :action => :export, :id => @page.id, :version => params[:version]} !%>
+  <!%= f.link_to 'HTML', :url => {:id => @page.title, :version => params[:version]} !%>
+  <!%= f.link_to 'TXT', :url => {:id => @page.title, :version => params[:version]} !%>
+<!% end if User.current.allowed_to?(:export_wiki_pages, @project) !%>
 </pre>
 # Restart your server or workers.
 
