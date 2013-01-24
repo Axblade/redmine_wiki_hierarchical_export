@@ -1,5 +1,5 @@
 # some additional functionality to wiki-pdf export if needed
-require 'iconv'
+require 'iconv' unless Rails::VERSION::MAJOR >= 3
 require 'fpdf/chinese'
 require 'fpdf/japanese'
 require 'fpdf/korean'

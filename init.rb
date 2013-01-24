@@ -1,5 +1,5 @@
 require 'redmine'
-require 'dispatcher'
+require 'dispatcher' unless Rails::VERSION::MAJOR >= 3
 require "#{File.dirname(__FILE__)}/lib/pdf"
 
 Redmine::Plugin.register :redmine_wiki_hierarchical_export do
@@ -11,8 +11,10 @@ Redmine::Plugin.register :redmine_wiki_hierarchical_export do
   author_url 'https://github.com/Axblade'
 
   requires_redmine :version_or_higher => '1.3.0'
-
-  Dispatcher.to_prepare :redmine_wiki_hierarchical_export do
-    # nothing here
+  
+  unless Rails::VERSION::MAJOR >= 3
+    Dispatcher.to_prepare :redmine_wiki_hierarchical_export do
+      # nothing here
+    end
   end
 end
