@@ -28,5 +28,4 @@ It should be:
 </pre>
 # Restart your server or workers.
 
-*Plugin will work only on Redmine 1.3+.*
-*Plugin was tested only on Ubuntu 10.04 LTS host with apache-passenger server.*
+*Plugin will work on Redmine 1.3+.* and 2.*.*
